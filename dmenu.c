@@ -962,12 +962,16 @@ main(int argc, char *argv[])
 		} else if (!strcmp(argv[i], "-b")) { /* appears at the bottom of the screen */
 			topbar = 0;
 			centered = 0;
+			lines = 0;
+			border_width = 1;
 		}
 		else if (!strcmp(argv[i], "-f"))   /* grabs keyboard before reading stdin */
 			fast = 1;
-		else if (!strcmp(argv[i], "-t"))   /* on top */
+		else if (!strcmp(argv[i], "-t")) {  /* on top */
 			centered = 0;
-		else if (!strcmp(argv[i], "-i")) { /* case-insensitive item matching */
+			lines = 0;
+			border_width = 1;
+		} else if (!strcmp(argv[i], "-i")) { /* case-insensitive item matching */
 			fstrncmp = strncasecmp;
 			fstrstr = cistrstr;
 		} else if (i + 1 == argc)

@@ -2,13 +2,12 @@
 # dmenu_run improved
 # if a command ends with "!", it is started in term.
 
-termcmd="st -e"
-test -s $HOME/.dmenurc && . $HOME/.dmenurc
+termcmd="$TERMINAL -e"
+test -s "$HOME"/.dmenurc && . "$HOME"/.dmenurc
 
 cmd="$(dmenu_path | dmenu $@)"
 case $cmd in
-    *\! ) ${termcmd} "$(printf "%s" "${cmd}" | cut -d'!' -f1)";;
-    * ) ${cmd} ;;
+    *\! ) ${termcmd} "${cmd%%!}" & ;;
+    * ) ${cmd} & ;;
 esac
 exit
-

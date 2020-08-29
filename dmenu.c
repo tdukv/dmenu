@@ -892,7 +892,7 @@ setup(void)
 static void
 usage(void)
 {
-	fputs("usage: dmenu [-bfiv] [-l lines] [-p prompt] [-fn font] [-m monitor]\n"
+	fputs("usage: dmenu [-bfiv] [-l lines] [-p prompt] [-wd width] [-fn font] [-m monitor]\n"
 	      "             [-nb color] [-nf color] [-sb color] [-sf color] [-w windowid]\n", stderr);
 	exit(1);
 }
@@ -983,6 +983,8 @@ main(int argc, char *argv[])
 			mon = atoi(argv[++i]);
 		else if (!strcmp(argv[i], "-p"))   /* adds prompt to left of input field */
 			prompt = argv[++i];
+		else if (!strcmp(argv[i], "-wd"))  /* width when centered */
+			min_width = atoi(argv[++i]);
 		else if (!strcmp(argv[i], "-fn"))  /* font or font set */
 			tempfonts = argv[++i];
 		else if (!strcmp(argv[i], "-nb"))  /* normal background color */

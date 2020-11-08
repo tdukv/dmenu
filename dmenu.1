@@ -12,6 +12,8 @@ dmenu \- dynamic menu
 .IR prompt ]
 .RB [ \-wd
 .IR width ]
+.RB [ \-bw
+.IR border width ]
 .RB [ \-fn
 .IR font ]
 .RB [ \-nb
@@ -78,7 +80,10 @@ from 0.
 defines the prompt to be displayed to the left of the input field.
 .TP
 .BI \-wd " width"
-Specify the width in pixels of the menu when centered. (Top and bottom positions use the full width of the screen.)<--Need to confirm this
+Specify the width in pixels of the menu when centered.
+.TP
+.BI \-bw " border width"
+Specify the width in pixels of the menu border. Default is 3 when centered and 1 in top/bottom position.
 .TP
 .BI \-fn " font"
 defines the font or font set used.

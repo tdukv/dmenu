@@ -1029,6 +1029,8 @@ main(int argc, char *argv[])
 			prompt = argv[++i];
 		else if (!strcmp(argv[i], "-wd"))  /* width when centered */
 			min_width = atoi(argv[++i]);
+		else if (!strcmp(argv[i], "-bw"))  /* border width */
+			border_width_c = border_width_t = atoi(argv[++i]);
 		else if (!strcmp(argv[i], "-fn"))  /* font or font set */
 			tempfonts = argv[++i];
 		else if (!strcmp(argv[i], "-nb"))  /* normal background color */

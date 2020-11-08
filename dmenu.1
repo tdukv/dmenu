@@ -6,6 +6,8 @@ dmenu \- dynamic menu
 .RB [ \-tbfirvP ]
 .RB [ \-l
 .IR lines ]
+.RB [ \-g
+.IR columns ]
 .RB [ \-m
 .IR monitor ]
 .RB [ \-p
@@ -69,8 +71,11 @@ dmenu will reject any input which would result in no matching option left.
 .B \-P
 dmenu will not directly display the keyboard input, but instead replace it with dots. All data from stdin will be ignored.
 .TP
+.BI \-g " columns"
+dmenu lists items in a grid with the given number of columns.
+.TP
 .BI \-l " lines"
-dmenu lists items vertically, with the given number of lines.
+dmenu lists items in a grid with the given number of lines.
 .TP
 .BI \-m " monitor"
 dmenu is displayed on the monitor number supplied. Monitor numbers are starting

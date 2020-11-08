@@ -1002,13 +1002,12 @@ main(int argc, char *argv[])
 		} else if (!strcmp(argv[i], "-b")) { /* appears at the bottom of the screen */
 			topbar = 0;
 			centered = 0;
-			lines = 0;
 		}
 		else if (!strcmp(argv[i], "-f"))   /* grabs keyboard before reading stdin */
 			fast = 1;
 		else if (!strcmp(argv[i], "-t")) {  /* on top */
 			centered = 0;
-			lines = 0;
+			topbar = 1;
 		} else if (!strcmp(argv[i], "-i")) { /* case-insensitive item matching */
 			fstrncmp = strncasecmp;
 			fstrstr = cistrstr;
@@ -1022,7 +1021,7 @@ main(int argc, char *argv[])
 			usage();
 		/* these options take one argument */
 		else if (!strcmp(argv[i], "-l"))   /* number of lines in vertical list */
-			lines = atoi(argv[++i]);
+			lines_c = lines_t = atoi(argv[++i]);
 		else if (!strcmp(argv[i], "-m"))
 			mon = atoi(argv[++i]);
 		else if (!strcmp(argv[i], "-p"))   /* adds prompt to left of input field */
@@ -1056,6 +1055,7 @@ main(int argc, char *argv[])
 
 	/* Variables with different defaults based on position */
 	border_width = centered ? border_width_c : border_width_t;
+	lines        = centered ? lines_c        : lines_t;
 
 	if (!setlocale(LC_CTYPE, "") || !XSupportsLocale())
 		fputs("warning: no locale support\n", stderr);

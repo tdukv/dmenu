@@ -27,4 +27,8 @@ static unsigned int lines      = 10;
 static const char worddelimiters[] = " ";
 
 /* Size of the window border */
-static unsigned int border_width = 3;
+static unsigned int border_width = 0;
+/* Default when centered */
+static unsigned int border_width_c = 3;
+/* Default when top/bottom */
+static unsigned int border_width_t = 1;

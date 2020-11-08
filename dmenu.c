@@ -1003,14 +1003,12 @@ main(int argc, char *argv[])
 			topbar = 0;
 			centered = 0;
 			lines = 0;
-			border_width = 1;
 		}
 		else if (!strcmp(argv[i], "-f"))   /* grabs keyboard before reading stdin */
 			fast = 1;
 		else if (!strcmp(argv[i], "-t")) {  /* on top */
 			centered = 0;
 			lines = 0;
-			border_width = 1;
 		} else if (!strcmp(argv[i], "-i")) { /* case-insensitive item matching */
 			fstrncmp = strncasecmp;
 			fstrstr = cistrstr;
@@ -1053,6 +1051,9 @@ main(int argc, char *argv[])
 			embed = argv[++i];
 		else
 			usage();
+
+	/* Variables with different defaults based on position */
+	border_width = centered ? border_width_c : border_width_t;
 
 	if (!setlocale(LC_CTYPE, "") || !XSupportsLocale())
 		fputs("warning: no locale support\n", stderr);

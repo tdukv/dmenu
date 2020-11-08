@@ -857,12 +857,12 @@ setup(void)
 		if (centered) {
 			recalculatenumbers();
 			mw = MIN(MAX(max_textw() + promptw + TEXTW(numbers + 1), min_width), info[i].width);
-			x = info[i].x_org + ((info[i].width  - mw) / 2);
-			y = info[i].y_org + ((info[i].height - mh) / 2);
+			x = info[i].x_org + ((info[i].width  - mw - border_width * 2) / 2);
+			y = info[i].y_org + ((info[i].height - mh - border_width * 2) / 2);
 		} else {
 			x = info[i].x_org;
 			y = info[i].y_org + (topbar ? 0 : info[i].height - mh - border_width * 2);
-			mw = info[i].width;
+			mw = info[i].width - border_width * 2;
 		}
 
 		XFree(info);
@@ -876,12 +876,12 @@ setup(void)
 		if (centered) {
 			recalculatenumbers();
 			mw = MIN(MAX(max_textw() + promptw + TEXTW(numbers + 1), min_width), wa.width);
-			x = (wa.width  - mw) / 2;
-			y = (wa.height - mh) / 2;
+			x = (wa.width  - mw - border_width * 2) / 2;
+			y = (wa.height - mh - border_width * 2) / 2;
 		} else {
 			x = 0;
 			y = topbar ? 0 : wa.height - mh - border_width * 2;
-			mw = wa.width;
+			mw = wa.width - border_width * 2;
 		}
 	}
 	inputw = MIN(inputw, mw/3);

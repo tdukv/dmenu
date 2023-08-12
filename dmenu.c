@@ -979,7 +979,7 @@ static void
 usage(void)
 {
 	fputs("usage: dmenu [-bfirPv] [-l lines] [-p prompt] [-wd width] [-fn font] [-m monitor]\n"
-	      "             [-nb color] [-nf color] [-sb color] [-sf color] [-w windowid]\n", stderr);
+	      "             [-nb color] [-nf color] [-sb color] [-sf color] [-w windowid] [-it text]\n", stderr);
 	exit(1);
 }
 
@@ -1098,7 +1098,10 @@ main(int argc, char *argv[])
 			colortemp[7] = argv[++i];
 		else if (!strcmp(argv[i], "-w"))   /* embedding window id */
 			embed = argv[++i];
-		else
+		else if (!strcmp(argv[i], "-it")) {
+			const char * text = argv[++i];
+			insert(text, strlen(text));
+		} else
 			usage();
 
 	/* Variables that depend on other variables */
